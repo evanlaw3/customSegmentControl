@@ -61,6 +61,16 @@
     [self setTitleTextAttributes:dic forState:UIControlStateSelected];
     [self setTitleTextAttributes:dic2 forState:UIControlStateNormal];
     [self setTintColor:[UIColor clearColor]];
+    [self setSelectedSegmentIndex:0];
+    
+    [self.layer setBorderColor:[UIColor grayColor].CGColor];
+    [self.layer setBorderWidth:0.5f];
+    
+    for (int i = 0; i < self.numberOfSegments; i++) {
+        UIView *sepView = [[UIView alloc]initWithFrame:CGRectMake(self.frame.size.width/self.numberOfSegments*(i+1), 0, 0.5f, self.frame.size.height)];
+        [sepView setBackgroundColor:[UIColor grayColor]];
+        [self addSubview:sepView];
+    }
     
     NSLog(@"w:%f, h:%f",rect.size.width,rect.size.height);
 }
